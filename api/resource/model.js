@@ -6,12 +6,12 @@ const getAllResources = () => {
 } 
 
 const getResourceById = id => {
-    return db('Resource').where({project_id: id})
+    return db('resources').where({resource_id: id})
 }
 
 const addNewResource = resource => {
     console.log(resource);
-    return db('Resources').insert(resource).then(id => getResourceById(id).first());
+    return db('resources').insert(resource).then(id => getResourceById(id).first());
 }
 
 module.exports = {

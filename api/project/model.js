@@ -10,7 +10,6 @@ const getProjectById = id => {
 }
 
 const addNewProject = project => {
-    console.log(project);
     return db('projects').insert(project).then(id => getProjectById(id).first());
 }
 

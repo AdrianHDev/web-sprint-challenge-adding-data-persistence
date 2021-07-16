@@ -3,11 +3,11 @@ const db = require('../../data/dbConfig')
 
 
 const getAllTasks = () => {
-    return db('tasks');
+    return db('tasks').leftJoin('projects', 'tasks.project_id', 'projects.project_id');
 } 
 
 const getTaskById = id => {
-    return db('task').where({project_id: id})
+    return db('tasks').where({task_id: id})
 }
 
 const addNewTask = task => {
