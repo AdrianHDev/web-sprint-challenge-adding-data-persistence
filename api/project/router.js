@@ -3,12 +3,13 @@ const router = express.Router();
 const { getAllProjects, addNewProject } = require("./model");
 router.get('/', async (req, res) => {
     const projects = await getAllProjects();
-    res(projects)
+    res.json(projects)
 })
 
 router.post('/', async (req, res) => {
+    console.log(req.body);
     try {   
-        const newProject = await addNewProject(res.body)
+        const newProject = await addNewProject(req.body)
         res.status(201).json(newProject)
     } catch (err) {
         console.error(err);
